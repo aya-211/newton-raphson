@@ -1,16 +1,3 @@
-#from tkinter import *
-#pro = Tk()
-#pro.geometry('1000x900+300+50')
-#pro.resizable( , True )
-#pro.title('Newton Raphson')
-#pro.config(background='black')
-#root.iconbitmap('C:\\Users\\LORD\\Desktop\\ChatGPT Image Apr 13, 2025, 01_24_28 PM.png')
-
-#pro.mainloop()
-
-
-
-
 
 import tkinter as tk
 from ttkbootstrap import Style
@@ -22,9 +9,8 @@ import sympy as sp
 root = tk.Tk()
 root.title("NEWTON RAPHSON METHOD")
 root.geometry('1000x500+300+100')
-#root.geometry("500x400")
 root.resizable( False , False )
-style = Style("morph")
+style = Style("journal")
 
 # مدخلات المستخدم
 label_func = tk.Label(root, text="Enter f(x):", font=("Cairo", 12))
@@ -32,10 +18,10 @@ label_func.pack(pady=5)
 entry_func = tk.Entry(root, width=30, font=("Cairo", 12))
 entry_func.pack(pady=20)
 
-label_guess = tk.Label(root, text="Enter initial value (x₀):", font=("Cairo", 12))
-label_guess.pack(pady=5)
-entry_guess = tk.Entry(root, width=30, font=("Cairo", 12))
-entry_guess.pack(pady=20)
+label_value = tk.Label(root, text="Enter initial value (x₀):", font=("Cairo", 12))
+label_value.pack(pady=5)
+entry_value = tk.Entry(root, width=30, font=("Cairo", 12))
+entry_value.pack(pady=20)
 
 label_iters = tk.Label(root, text="Enter the number of iterations:", font=("Cairo", 12))
 label_iters.pack(pady=5)
@@ -52,7 +38,7 @@ def newton_raphson():
         func = sp.sympify(func_str)
         f_prime = sp.diff(func, x)
         
-        x0 = float(entry_guess.get())
+        x0 = float(entry_value.get())
         n = int(entry_iters.get())
         
         for i in range(n):
